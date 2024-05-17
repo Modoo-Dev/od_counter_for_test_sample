@@ -14,7 +14,7 @@ main() {
   setUpAll(() {
     mockPrefs = MockSharedPreferences();
     counter = Counter(mockPrefs);
-    when(mockPrefs.setInt(any, any)).thenAnswer((_) async => true);
+    
   });
 
   group('count 값 read', () {
@@ -24,15 +24,21 @@ main() {
     });
   });
   group('count 값 save', () {
-
+    setUp(() {
+      when(mockPrefs.setInt('counter', 3)).thenAnswer((_) async => true);
+      when(mockPrefs.setInt('counter', 7)).thenAnswer((_) async => false);
+      //when(mockPrefs.setInt('counter', 7)).thenThrow(Exception('something problem'));
+    });
     test('SharedPreference에 count값을 성공적으로 저장합니다.', () async {
       counter.count = 3;
       await counter.saveCount();
       verify(mockPrefs.setInt('counter', 3)).called(1);
     });
-    test('SharedPreference에 count값 저장시 exception 발생합니다.', () {
-      //강제로 exception은 어떻게 만들지?
+    test('SharedPreference에 count값 저장시 exception 발생합니다.', () async{
+      counter.count = 7;
+      expect(counter.saveCount(), throwsA(isA<Exception>()));
     });
   });
 }
+
 

@@ -24,7 +24,7 @@ class Counter {
     try{
       final prefs=sharePreference??await SharedPreferences.getInstance();
       
-      final result=await prefs.setInt('counter', 3);
+      final result=await prefs.setInt('counter', count);
       if(!result){
         throw('setInt return false');
       }

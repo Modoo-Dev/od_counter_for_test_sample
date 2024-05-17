@@ -1,16 +1,12 @@
 # od_counter
 
-A new Flutter project.
+Flutter application의 Test를 학습하기 위한 Sample입니다.   
+Flutter의 기본 app인 counter App을 응용하여 아래 세 가지 test를 구현해 봅니다. 
 
-## Getting Started
+1.   unit test
+2.   widget test
+3.   integration test
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+궁금하신 사항은 이메일(woorimodoo4u@gmail.com) 주세요.
